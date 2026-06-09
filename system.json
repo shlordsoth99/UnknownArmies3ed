@@ -13,6 +13,20 @@
       "flags": {}
     }
   ],
+  "documentTypes": {
+        "Actor": {
+            "character": {},
+            "cabal": {}
+        },
+        "Item": {
+            "artifact": {},
+            "identity": {},
+            "item": {},
+            "milestone": {},
+            "ritual": {},
+            "spell": {}
+        }
+    },
   "esmodules": [
     "module/ua3e.mjs"
   ],
