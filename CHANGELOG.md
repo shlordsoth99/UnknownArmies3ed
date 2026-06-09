@@ -1,37 +1,50 @@
-# Changelog
+<div class="abilities-tab-content">
+  <h2>{{localize 'UA3E.Abilities'}}</h2>
+  <p class="abilities-subtitle">{{localize 'UA3E.AbilitiesSubtitle'}}</p>
 
-## [1.0.0] - 2026-06-09
+  <div class="abilities-grid">
+    {{#each abilities as |ability key|}}
+    <div class="ability-card" data-ability="{{key}}">
+      <div class="ability-header">
+        <span class="ability-name">{{ability.label}}</span>
+        <span class="ability-abbr">{{ability.abbr}}</span>
+      </div>
+      <div class="ability-body">
+        <div class="ability-value">
+          <input type="number" name="system.abilities.{{key}}.value" value="{{ability.value}}" min="0" max="100" />
+          <span class="ability-percent">%</span>
+        </div>
+        <button type="button" class="ability-roll" data-ability="{{key}}" title="{{localize 'UA3E.RollAbility'}}">
+          <i class="fas fa-dice-d20"></i>
+        </button>
+      </div>
+      <div class="ability-bar">
+        <div class="ability-fill" style="width: {{ability.value}}%"></div>
+      </div>
+    </div>
+    {{/each}}
+  </div>
 
-### Added
-- Initial release of Unknown Armies 3rd Edition system for Foundry VTT v13
-- Full character sheet with attributes, abilities, identities, passions
-- NPC sheet with threat levels, powers, weaknesses, motivation, tactics
-- Stress check system with 5 gauges (Violence, Helplessness, Unnatural, Isolation, Self)
-- Interactive hardened notches with click-to-toggle
-- Automated trauma application on matched/critical failures
-- Percentile dice system with matched results and criticals
-- Dark occult-themed UI with color-coded gauges
-- 5 pre-generated player characters
-- 8 pre-generated enemies/antagonists
-- Equipment, relationship, trauma, and power item types
-- Identity system with obsession marking and substitution
-- Full English and Russian localization
-- System settings for automation preferences
-- Custom token bars for Health and Stability
+  <div class="abilities-info">
+    <h3>{{localize 'UA3E.AbilityDescriptions'}}</h3>
+    <dl>
+      <dt>{{localize 'UA3E.AbilityConnect'}}</dt>
+      <dd>{{localize 'UA3E.AbilityConnectDesc'}}</dd>
 
-### Features
-- d% roll mechanics with automatic success/failure calculation
-- Flip-flop support for obsession identity rolls
-- Wound threshold calculation based on Body attribute
-- Initiative formula: 1d10 + Speed/10
-- Drag-and-drop item management
-- Inline editing for NPC powers and weaknesses
-- Responsive design for various screen sizes
+      <dt>{{localize 'UA3E.AbilityKnowledge'}}</dt>
+      <dd>{{localize 'UA3E.AbilityKnowledgeDesc'}}</dd>
 
-### Technical
-- ES Module architecture for Foundry VTT v13
-- Handlebars templates with custom helpers
-- CSS custom properties for theming
-- Actor and Item document class extensions
-- Custom dice classes (PercentileRoll, StressRoll)
-- Chat message integration with styled roll cards
+      <dt>{{localize 'UA3E.AbilityLie'}}</dt>
+      <dd>{{localize 'UA3E.AbilityLieDesc'}}</dd>
+
+      <dt>{{localize 'UA3E.AbilityNotice'}}</dt>
+      <dd>{{localize 'UA3E.AbilityNoticeDesc'}}</dd>
+
+      <dt>{{localize 'UA3E.AbilityPursuit'}}</dt>
+      <dd>{{localize 'UA3E.AbilityPursuitDesc'}}</dd>
+
+      <dt>{{localize 'UA3E.AbilityStruggle'}}</dt>
+      <dd>{{localize 'UA3E.AbilityStruggleDesc'}}</dd>
+    </dl>
+  </div>
+</div>
