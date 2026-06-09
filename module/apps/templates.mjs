@@ -26,7 +26,8 @@ export const preloadHandlebarsTemplates = async function() {
     // Apps
     'systems/unknown-armies-3e/templates/apps/roll-result.html',
     'systems/unknown-armies-3e/templates/apps/stress-result.html',
-    'systems/unknown-armies-3e/templates/apps/stress-dialog.html'
+    'systems/unknown-armies-3e/templates/apps/stress-dialog.html',
+    'systems/unknown-armies-3e/templates/apps/create-compendium.html'
   ];
 
   return loadTemplates(templatePaths);

@@ -2,31 +2,20 @@
   "id": "unknown-armies-3e",
   "title": "Unknown Armies 3rd Edition",
   "description": "A game system for Unknown Armies 3rd Edition - the roleplaying game of power and consequences. Humanity is the only measure of reality, and your obsession is your weapon.",
-  "version": "1.0.2",
+  "version": "1.0.0",
   "compatibility": {
     "minimum": "13",
-    "verified": "13.341"
+    "verified": "13.341",
+    "maximum": "13"
   },
   "authors": [
     {
-      "name": "Petr Surenkov",
+      "name": "UA3E Community",
+      "email": "",
+      "url": "",
       "flags": {}
     }
   ],
-  "documentTypes": {
-        "Actor": {
-            "character": {},
-            "cabal": {}
-        },
-        "Item": {
-            "artifact": {},
-            "identity": {},
-            "item": {},
-            "milestone": {},
-            "ritual": {},
-            "spell": {}
-        }
-    },
   "esmodules": [
     "module/ua3e.mjs"
   ],
@@ -37,12 +26,72 @@
     {
       "lang": "en",
       "name": "English",
-      "path": "lang/en.json"
+      "path": "lang/en.json",
+      "flags": {}
     },
     {
       "lang": "ru",
-      "name": "Russian",
-      "path": "lang/ru.json"
+      "name": "Русский",
+      "path": "lang/ru.json",
+      "flags": {}
+    }
+  ],
+  "packs": [
+    {
+      "name": "characters",
+      "label": "Pre-generated Characters",
+      "path": "packs/characters",
+      "type": "Actor",
+      "system": "unknown-armies-3e",
+      "ownership": {
+        "PLAYER": "LIMITED",
+        "ASSISTANT": "OWNER"
+      },
+      "flags": {}
+    },
+    {
+      "name": "enemies",
+      "label": "Antagonists & Threats",
+      "path": "packs/enemies",
+      "type": "Actor",
+      "system": "unknown-armies-3e",
+      "ownership": {
+        "PLAYER": "NONE",
+        "ASSISTANT": "OWNER"
+      },
+      "flags": {}
+    },
+    {
+      "name": "identity-skills",
+      "label": "Identity Skills",
+      "path": "packs/identity-skills",
+      "type": "Item",
+      "system": "unknown-armies-3e",
+      "ownership": {
+        "PLAYER": "LIMITED",
+        "ASSISTANT": "OWNER"
+      },
+      "flags": {}
+    },
+    {
+      "name": "equipment",
+      "label": "Equipment",
+      "path": "packs/equipment",
+      "type": "Item",
+      "system": "unknown-armies-3e",
+      "ownership": {
+        "PLAYER": "LIMITED",
+        "ASSISTANT": "OWNER"
+      },
+      "flags": {}
+    }
+  ],
+  "packFolders": [
+    {
+      "name": "Unknown Armies 3E",
+      "sorting": "m",
+      "packs": ["characters", "enemies", "identity-skills", "equipment"],
+      "folders": []
     }
   ],
   "socket": false,
@@ -52,11 +101,16 @@
     "units": "ft",
     "type": 1
   },
-  "url": "https://github.com/shlordsoth99/UnknownArmies3ed",
-  "manifest": "https://raw.githubusercontent.com/shlordsoth99/UnknownArmies3ed/main/system.json",
-  "download": "https://github.com/shlordsoth99/UnknownArmies3ed/archive/refs/heads/main.zip",
+  "primaryTokenAttribute": "health",
+  "secondaryTokenAttribute": "stability",
+  "url": "https://github.com/patrickbuck1988/unknown-armies-3e",
+  "manifest": "https://raw.githubusercontent.com/patrickbuck1988/unknown-armies-3e/main/system.json",
+  "download": "https://github.com/patrickbuck1988/unknown-armies-3e/archive/refs/heads/main.zip",
   "license": "LICENSE.txt",
   "readme": "README.md",
-  "bugs": "https://github.com/shlordsoth99/UnknownArmies3ed/issues",
-  "changelog": "CHANGELOG.md"
+  "bugs": "https://github.com/patrickbuck1988/unknown-armies-3e/issues",
+  "changelog": "CHANGELOG.md",
+  "flags": {
+    "allowBugReporter": true
+  }
 }

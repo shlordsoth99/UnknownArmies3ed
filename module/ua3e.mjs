@@ -13,6 +13,10 @@ import { UA3EItemSheet } from './items/sheet.mjs';
 import { StressRoll, PercentileRoll } from './dice/dice.mjs';
 import { preloadHandlebarsTemplates } from './apps/templates.mjs';
 import { registerHandlebarsHelpers } from './apps/helpers.mjs';
+import { registerSidebarHooks } from './apps/sidebar.mjs';
+import { registerHotbarHooks } from './apps/hotbar.mjs';
+import { registerTokenHUD } from './apps/token-hud.mjs';
+import { registerCombatHooks, registerCombatSettings } from './apps/combat.mjs';
 
 /* -------------------------------------------- */
 /*  System Initialization                         */
@@ -29,6 +33,7 @@ Hooks.once('init', async function() {
 
   // Register System Settings
   registerSystemSettings();
+  registerCombatSettings();
 
   // Define custom Document classes
   CONFIG.Actor.documentClass = UA3EActor;
@@ -69,9 +74,20 @@ Hooks.once('init', async function() {
 Hooks.once('ready', async function() {
   console.log('Unknown Armies 3E | Ready');
 
+  // Register UI hooks
+  registerSidebarHooks();
+  registerHotbarHooks();
+  registerTokenHUD();
+  registerCombatHooks();
+
   // Apply stress automation if enabled
   if (game.settings.get('unknown-armies-3e', 'autoStress')) {
     console.log('Unknown Armies 3E | Automatic stress tracking enabled');
+  }
+
+  // Welcome message
+  if (game.user.isGM) {
+    console.log('Unknown Armies 3E | GM detected - full controls available');
   }
 });
 
@@ -96,24 +112,43 @@ Hooks.on('renderChatMessage', (app, html, data) => {
 /* -------------------------------------------- */
 
 Hooks.on('getSceneControlButtons', (controls) => {
-  // Add UA3E-specific controls
-  const tokenTools = controls.find(c => c.name === 'token');
-  if (tokenTools) {
-    tokenTools.tools.push({
-      name: 'stress-check',
-      title: 'UA3E.StressCheck',
-      icon: 'fas fa-brain',
-      visible: game.user.isGM,
-      onClick: () => {
-        // Open stress check dialog
-        new Dialog({
-          title: game.i18n.localize('UA3E.StressCheck'),
-          content: '<p>Select gauge and target...</p>',
-          buttons: {}
-        }).render(true);
+  // Add UA3E-specific scene controls
+  controls.push({
+    name: 'ua3e',
+    title: 'UA3E.UA3EControls',
+    icon: 'fas fa-moon',
+    layer: 'controls',
+    tools: [
+      {
+        name: 'stress-check',
+        title: 'UA3E.StressCheckTool',
+        icon: 'fas fa-brain',
+        onClick: () => {
+          // Open stress check for selected tokens
+          const controlled = canvas.tokens.controlled;
+          if (controlled.length === 0) {
+            ui.notifications.warn(game.i18n.localize('UA3E.NoTokensSelected'));
+            return;
+          }
+          // Delegate to hotbar function
+          import('./apps/hotbar.mjs').then(module => {
+            // The hotbar module will handle this
+          });
+        },
+        toggle: false
+      },
+      {
+        name: 'reality-anchor',
+        title: 'UA3E.RealityAnchor',
+        icon: 'fas fa-anchor',
+        onClick: () => {
+          // Toggle reality anchor visualization
+        },
+        toggle: true
       }
-    });
-  }
+    ],
+    activeTool: ''
+  });
 });
 
 /* -------------------------------------------- */
