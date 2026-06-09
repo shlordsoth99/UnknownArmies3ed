@@ -45,60 +45,6 @@
       "path": "lang/ru.json"
     }
   ],
-  "packs": [
-    {
-      "name": "characters",
-      "label": "Pre-generated Characters",
-      "path": "packs/characters",
-      "type": "Actor",
-      "system": "unknown-armies-3e",
-      "ownership": {
-        "PLAYER": "LIMITED",
-        "ASSISTANT": "OWNER"
-      }
-    },
-    {
-      "name": "enemies",
-      "label": "Antagonists & Threats",
-      "path": "packs/enemies",
-      "type": "Actor",
-      "system": "unknown-armies-3e",
-      "ownership": {
-        "PLAYER": "NONE",
-        "ASSISTANT": "OWNER"
-      }
-    },
-    {
-      "name": "identity-skills",
-      "label": "Identity Skills",
-      "path": "packs/identity-skills",
-      "type": "Item",
-      "system": "unknown-armies-3e",
-      "ownership": {
-        "PLAYER": "LIMITED",
-        "ASSISTANT": "OWNER"
-      }
-    },
-    {
-      "name": "equipment",
-      "label": "Equipment",
-      "path": "packs/equipment",
-      "type": "Item",
-      "system": "unknown-armies-3e",
-      "ownership": {
-        "PLAYER": "LIMITED",
-        "ASSISTANT": "OWNER"
-      }
-    }
-  ],
-  "packFolders": [
-    {
-      "name": "Unknown Armies 3E",
-      "sorting": "m",
-      "packs": ["characters", "enemies", "identity-skills", "equipment"],
-      "folders": []
-    }
-  ],
   "socket": false,
   "initiative": "1d10 + @speed",
   "grid": {
@@ -106,8 +52,6 @@
     "units": "ft",
     "type": 1
   },
-  "primaryTokenAttribute": "health",
-  "secondaryTokenAttribute": "stability",
   "url": "https://github.com/shlordsoth99/UnknownArmies3ed",
   "manifest": "https://raw.githubusercontent.com/shlordsoth99/UnknownArmies3ed/main/system.json",
   "download": "https://github.com/shlordsoth99/UnknownArmies3ed/archive/refs/heads/main.zip",
