@@ -5,8 +5,7 @@
   "version": "1.0.0",
   "compatibility": {
     "minimum": "13",
-    "verified": "13.341",
-    "maximum": "13"
+    "verified": "13.341"
   },
   "authors": [
     {
@@ -24,14 +23,12 @@
     {
       "lang": "en",
       "name": "English",
-      "path": "lang/en.json",
-      "flags": {}
+      "path": "lang/en.json"
     },
     {
       "lang": "ru",
       "name": "Russian",
-      "path": "lang/ru.json",
-      "flags": {}
+      "path": "lang/ru.json"
     }
   ],
   "packs": [
@@ -44,8 +41,7 @@
       "ownership": {
         "PLAYER": "LIMITED",
         "ASSISTANT": "OWNER"
-      },
-      "flags": {}
+      }
     },
     {
       "name": "enemies",
@@ -56,8 +52,7 @@
       "ownership": {
         "PLAYER": "NONE",
         "ASSISTANT": "OWNER"
-      },
-      "flags": {}
+      }
     },
     {
       "name": "identity-skills",
@@ -68,8 +63,7 @@
       "ownership": {
         "PLAYER": "LIMITED",
         "ASSISTANT": "OWNER"
-      },
-      "flags": {}
+      }
     },
     {
       "name": "equipment",
@@ -80,8 +74,7 @@
       "ownership": {
         "PLAYER": "LIMITED",
         "ASSISTANT": "OWNER"
-      },
-      "flags": {}
+      }
     }
   ],
   "packFolders": [
@@ -107,8 +100,5 @@
   "license": "LICENSE.txt",
   "readme": "README.md",
   "bugs": "https://github.com/shlordsoth99/UnknownArmies3ed/issues",
-  "changelog": "CHANGELOG.md",
-  "flags": {
-    "allowBugReporter": true
-  }
+  "changelog": "CHANGELOG.md"
 }
